@@ -19,10 +19,10 @@
 
 ## What was actually tested
 - Step test on row 2 (Test Buyer One): AI returned Hot, score 95, budget quoted as typed, valid JSON-style fields. Validation returned VALID and row 2 was updated with Status `Qualified`.
-- Live runs: all three test leads were written back with Validation `VALID` and Status `Needs Human Review`. The AI sent each to human review, so a live Hot lead with a draft has only been seen in the step test (row 2), not in a live run.
+- Live runs: the no-budget, injection and Arabic leads were written back with Validation `VALID` and Status `Needs Human Review`. A later live Hot lead (TC-01, "Sara Demo Buyer") was scored 95 / Hot, Status `Qualified`, with a draft message.
 - Not tested: invalid AI output (TC-09) and the validation failure branches, failure notifications.
 
 ## Known gaps
-- No alert is sent when validation fails. The lead is only marked Needs Human Review.
-- The failure-notification Zapier setting is not configured.
+- No alert is sent when validation fails. The lead is only marked Needs Human Review. A Gmail alert step would send mail, so it needs your OK.
+- Zapier's default error email is already on (frequency: Immediately) for all Zaps on the account. Custom per-Zap notifications need a paid plan.
 - Zapier warns of a possible loop because step 5 edits the same sheet. The trigger fires only on new rows, so an update should not retrigger it. This is to be confirmed in a live run.

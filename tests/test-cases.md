@@ -4,7 +4,7 @@ Use rows from `data/synthetic_leads.csv`. Fill the Result column only from what 
 
 | ID | Zap | Input (CSV row purpose) | Expected | Result |
 |---|---|---|---|---|
-| TC-01 | 1, 2 | Hot buyer | Row in `Leads`, Status New; later category Hot with reason citing budget, timeline, location | Zap 1 part: row created in `Leads` with Status New (step test and live trigger). Zap 2 not built. |
+| TC-01 | 1, 2 | Hot buyer | Row in `Leads`, Status New; later category Hot with reason citing budget, timeline, location | Run 2026-11-23 live end to end with a second synthetic hot lead ("Sara Demo Buyer", AED 4.5 million villa, 4 weeks, financing approved). Zap 1 created the row; Zap 2 then set Score 95, Category Hot, Status `Qualified`, Validation `VALID`. The reason cites budget, location, timeline and approved financing. The draft promises no price, discount or availability. **PASS.** The first TC-01 lead (row 2) was scored only by a step test. |
 | TC-02 | 1, 2 | Vague renter | Row created; later Warm or Cold, missing info listed | Not run |
 | TC-03 | 1 | Blank email | Filtered at step 2, no row created | Run 2026-11-23 (Zap 1 live). Zap history shows a Filtered run and no row for this lead in `Leads`. Which filter stopped it was not inspected. Pass for the outcome. |
 | TC-04 | 2 | Spam | Needs Human Review, empty draft | Not run |
