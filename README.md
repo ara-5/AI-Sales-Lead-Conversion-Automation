@@ -2,6 +2,14 @@
 
 LeadFlow AI captures inbound enquiries, normalizes and de-duplicates them, qualifies and scores them with AI (with a stated reason), drafts personalized follow-ups, and routes everything through human approval before anything sensitive is sent. Zapier is the orchestration engine.
 
+## Build status
+| Zap | Status |
+|---|---|
+| 1. Lead capture, normalize, dedupe (Google Form → Sheet) | **Live (v2).** Tested with synthetic leads: valid lead, no budget, invalid email, duplicate email, duplicate phone |
+| 2-8. Qualification, CRM, follow-up, approval, booking, reminders, report | Not started |
+
+Zap 1 uses Zapier features that need a paid plan after the free trial.
+
 > **Project status: IN PROGRESS.** Nothing below is claimed as working until the matching row in [`docs/zaps/README.md`](docs/zaps/README.md) and [`tests/test-cases.md`](tests/test-cases.md) says it was tested. All data in this repo is synthetic.
 
 ## Target customers
