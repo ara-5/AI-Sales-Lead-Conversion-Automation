@@ -1,11 +1,25 @@
 # Zap 1 — LeadFlow: New Lead Capture
 
 **Purpose:** Take each new Google Form response, clean it, reject duplicates, and create one row in `Leads` with Status `New`.
-**Status:** Designed, not yet built or tested. Step names below must be checked against the Zap editor.
+**Status:** Built and published in Zapier. Each step passed Zapier's step test with the synthetic TC-01 lead. The duplicate/edge test cases (TC-03, TC-05, TC-06, TC-07) have **not been run yet**.
 
+## What was actually built (9 steps)
+1. Google Sheets, New Spreadsheet Row: spreadsheet `LeadFlow Demo Enquiry (Responses)`, tab `Form Responses 1`.
+2. Filter: Email (Text) Contains `@`.
+3. Formatter, Text, Lowercase on Email.
+4. Formatter, Numbers, Format Phone Number: E164 format, country United Arab Emirates.
+5. Google Sheets, Lookup Spreadsheet Row in `Leads`, column `Dedupe Key` = step 3 output. "Successful if no search results are found" is set to True (the default halts the Zap when nothing is found, which would block every new lead). "Create row if it doesn't exist" is off.
+6. Filter: step 5 ID, Does not exist.
+7. Google Sheets, Lookup Spreadsheet Row in `Leads`, column `Phone` = step 4 output, same not-found setting.
+8. Filter: step 7 ID, Does not exist.
+9. Google Sheets, Create Spreadsheet Row in `Leads`: Lead ID = `LF-` + form Timestamp, Created At = form Timestamp, Source `Google Form`, Full Name, Email (step 3), Phone (step 4), Company, Interest, Budget Raw, Location, Raw Message, Dedupe Key (step 3), Status `New`.
+
+Known limitations: the Lead ID contains slashes and colons (e.g. `LF-11/23/2026 13:04:03`) and could collide if two leads arrive in the same second; failure notifications are not configured yet; no Trim step before Lowercase.
+
+## Original design (for reference)
 ## Prerequisite sheets
 Spreadsheet `LeadFlow AI Demo`
-- Tab `Form_Responses` (auto-created by the Google Form; link the form to this spreadsheet).
+- Responses live in a separate spreadsheet created by the Google Form, tab `Form Responses 1`.
 - Tab `Leads` with headers (row 1): `Lead ID | Created At | Source | Full Name | Email | Phone | Company | Interest | Budget Raw | Location | Raw Message | Dedupe Key | Status | AI Summary | Requirements | Budget AI | Urgency | Score | Category | Score Reason | Next Action | Draft Message | Validation Status | CRM ID | Approval Status | Approved By | Sent At | Booking Time | Last Contacted | Owner | Escalated`
 
 ## Form fields (all required except Company/Budget)

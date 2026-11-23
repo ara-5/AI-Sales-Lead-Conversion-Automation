@@ -2,7 +2,7 @@
 
 | # | Zap | Status | Tested on |
 |---|---|---|---|
-| 1 | New lead capture, normalize, dedupe | Designed, not built | - |
+| 1 | New lead capture, normalize, dedupe | Built and published; step tests passed for TC-01; duplicate tests pending | - |
 | 2 | AI qualification, scoring, validation | Not started | - |
 | 3 | CRM create/update | Not started | - |
 | 4 | Follow-up generation + approval request | Not started | - |
