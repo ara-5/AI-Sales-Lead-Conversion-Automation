@@ -19,3 +19,4 @@ Use rows from `data/synthetic_leads.csv`. Fill the Result column only from what 
 | TC-13 | 5 | Approval declined | Nothing sent | Not run |
 | TC-14 | 7 | Lead uncontacted past threshold | Reminder, then escalation | Not run |
 | TC-15 | 8 | Report | Counts match Sheet | Not run |
+| TC-16 | 3 | Qualified lead synced to CRM | One `CRM` row per Dedupe Key with mapped fields; a second run updates, not duplicates | Step-tested 2026-11-23 with "Sara Demo Buyer": the lookup created a CRM row (ID 2) and the update step filled all mapped fields with `CRM Action = Synced`. **Partial.** The update path for an existing row, duplicate prevention and a live trigger run are not yet tested. |
