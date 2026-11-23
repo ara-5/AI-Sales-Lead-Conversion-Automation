@@ -1,9 +1,9 @@
 # Zap 1 — LeadFlow: New Lead Capture
 
 **Purpose:** Take each new Google Form response, clean it, reject duplicates, and create one row in `Leads` with Status `New`.
-**Status:** Built and published in Zapier. Each step passed Zapier's step test with the synthetic TC-01 lead. The duplicate/edge test cases (TC-03, TC-05, TC-06, TC-07) have **not been run yet**.
+**Status:** Built and published in Zapier. Each step passed Zapier's step test with the synthetic TC-01 lead. TC-03, TC-05, TC-06 and TC-07 have been run. TC-06 failed on v1 and was fixed in v2 (see below).
 
-## What was actually built (9 steps)
+## What was actually built (10 steps, v2)
 1. Google Sheets, New Spreadsheet Row: spreadsheet `LeadFlow Demo Enquiry (Responses)`, tab `Form Responses 1`.
 2. Filter: Email (Text) Contains `@`.
 3. Formatter, Text, Lowercase on Email.
@@ -13,6 +13,8 @@
 7. Google Sheets, Lookup Spreadsheet Row in `Leads`, column `Phone` = step 4 output, same not-found setting.
 8. Filter: step 7 ID, Does not exist.
 9. Google Sheets, Create Spreadsheet Row in `Leads`: Lead ID = `LF-` + form Timestamp, Created At = form Timestamp, Source `Google Form`, Full Name, Email (step 3), Phone (step 4), Company, Interest, Budget Raw, Location, Raw Message, Dedupe Key (step 3), Status `New`.
+
+v2 change: a Formatter Text > Replace step (step 5) strips the `+` from the E.164 phone. The phone lookup (step 8) searches the `Dedupe Phone` column (AF) with that digits-only value, and Create Row writes it to `Dedupe Phone`. A direct lookup on the `+` value had not matched.
 
 Known limitations: the Lead ID contains slashes and colons (e.g. `LF-11/23/2026 13:04:03`) and could collide if two leads arrive in the same second; failure notifications are not configured yet; no Trim step before Lowercase.
 
