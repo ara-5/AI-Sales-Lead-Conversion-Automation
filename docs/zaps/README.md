@@ -3,7 +3,7 @@
 | # | Zap | Status | Tested on |
 |---|---|---|---|
 | 1 | New lead capture, normalize, dedupe | Built and published. TC-01, 03, 05, 07 behave as expected; TC-06 (duplicate phone) failed on v1, fixed in v2 and passed on re-run | - |
-| 2 | AI qualification, scoring, validation | Built in the editor and step-tested; not published; end-to-end tests not run | [02](02-ai-qualification.md) |
+| 2 | AI qualification, scoring, validation | Published. TC-07, 08, 10 run live (all went to Needs Human Review); TC-09 not run | [02](02-ai-qualification.md) |
 | 3 | CRM create/update | Not started | - |
 | 4 | Follow-up generation + approval request | Not started | - |
 | 5 | Approved follow-up sending | Not started | - |

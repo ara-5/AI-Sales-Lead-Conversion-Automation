@@ -1,6 +1,6 @@
 # Zap 2: AI qualification and scoring
 
-**Status:** Built in the Zapier editor as "LeadFlow 02 - AI Qualification" and step-tested with the synthetic TC-01 lead. **Not published yet. End-to-end test cases (TC-07 to TC-10) have not been run.**
+**Status:** Published in Zapier as "LeadFlow 02 - AI Qualification". Run end to end on 2026-11-23 with three synthetic leads (no budget, prompt injection, Arabic); see TC-07, TC-08 and TC-10 in `tests/test-cases.md`. TC-09 (invalid AI output) is not run.
 
 **Paid plan:** the AI by Zapier step is marked Premium, so this Zap needs a paid plan after the free trial.
 
@@ -19,7 +19,8 @@
 
 ## What was actually tested
 - Step test on row 2 (Test Buyer One): AI returned Hot, score 95, budget quoted as typed, valid JSON-style fields. Validation returned VALID and row 2 was updated with Status `Qualified`.
-- Not tested yet: invalid AI output (TC-09), prompt injection (TC-08), Arabic (TC-10), no budget (TC-07 Zap 2 part), failure notifications.
+- Live runs: all three test leads were written back with Validation `VALID` and Status `Needs Human Review`. The AI sent each to human review, so a live Hot lead with a draft has only been seen in the step test (row 2), not in a live run.
+- Not tested: invalid AI output (TC-09) and the validation failure branches, failure notifications.
 
 ## Known gaps
 - No alert is sent when validation fails. The lead is only marked Needs Human Review.

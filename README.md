@@ -6,7 +6,8 @@ LeadFlow AI captures inbound enquiries, normalizes and de-duplicates them, quali
 | Zap | Status |
 |---|---|
 | 1. Lead capture, normalize, dedupe (Google Form → Sheet) | **Live (v2).** Tested with synthetic leads: valid lead, no budget, invalid email, duplicate email, duplicate phone |
-| 2-8. Qualification, CRM, follow-up, approval, booking, reminders, report | Not started |
+| 2. AI qualification and validation | **Live.** Run end to end with synthetic no-budget, prompt-injection and Arabic leads (all routed to Needs Human Review). Invalid-output test not run |
+| 3-8. CRM, follow-up, approval, booking, reminders, report | Not started |
 
 Zap 1 uses Zapier features that need a paid plan after the free trial.
 
