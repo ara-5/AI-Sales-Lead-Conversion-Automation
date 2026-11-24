@@ -43,7 +43,8 @@ Solid green is built and tested. Dashed grey is planned.
 | 3 | CRM create/update (Google Sheet CRM) | **Live.** One synthetic lead run through Zaps 1 → 2 → 3, then re-run to confirm one CRM row per lead |
 | 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Live.** Qualified lead became Pending Approval; a Needs Human Review lead was blocked |
 | 5 | Approved send (test mode, emails owner only) | **Live (v2, test mode).** One approved lead produced one send and a `Sent At` stamp; a pending lead was blocked |
-| 6-8 | Bookings, reminders, report | Not started |
+| 6 | Booking notification (test mode, emails owner only) | Built as a draft, not published, not tested |
+| 7-8 | Reminders, report | Not started |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
 
@@ -90,6 +91,7 @@ docs/zaps/02-ai-qualification.md
 docs/zaps/03-crm-sync.md
 docs/zaps/04-approval-request.md
 docs/zaps/05-approved-send.md
+docs/zaps/06-booking-notification.md
 docs/commercial-deployment.md  pricing and rollout notes
 prompts/lead-qualification.md  AI prompt, JSON schema, validation rules
 data/synthetic_leads.csv       synthetic test leads

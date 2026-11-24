@@ -7,7 +7,7 @@
 | 3 | CRM create/update (Google Sheet CRM) | Published. Live chain Zap 1 → 2 → 3 run with a synthetic lead; update path re-run (one row per lead). TC-16 passed; failure branches untested | [03](03-crm-sync.md) |
 | 4 | Approval request (sheet-based; draft comes from Zap 2) | Published. Live run: qualified lead became Pending Approval; a Needs Human Review lead was blocked (TC-17). Loop re-run untested | [04](04-approval-request.md) |
 | 5 | Approved follow-up send (test mode: emails owner only) | Published (v2). v1 filter bug (Sent At rule) found and fixed. TC-18 passed in Zapier's run log: one test-mode send, Sent At written. Inbox arrival to be confirmed | [05](05-approved-send.md) |
-| 6 | Appointment booking notifications | Not started | - |
+| 6 | Appointment booking notifications (test mode: emails owner only) | Built as a draft, not published, not tested | [06](06-booking-notification.md) |
 | 7 | Inactive lead reminders + escalation | Not started | - |
 | 8 | Daily sales performance report | Not started | - |
 
