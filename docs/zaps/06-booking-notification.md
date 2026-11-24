@@ -1,6 +1,6 @@
 # Zap 6 - Booking notification
 
-**Status: built in Zapier as a draft (Zap id 387668398). Not published, not tested. No email has been sent by this Zap.**
+**Status: published (v1), live test passed 2026-11-24 (TC-19). Test mode: emails go to the owner only, never the lead.**
 
 ## Purpose
 Tell the sales owner when a lead has a booking time, so nobody misses a viewing or appointment.
@@ -17,8 +17,12 @@ Tell the sales owner when a lead has a booking time, so nobody misses a viewing 
 
 ## Known gaps
 - Nothing populates `Booking Time` yet. Until a person (or a later booking Zap) fills it in, this Zap will not fire.
-- Zap 5 showed that the Sheets trigger may not re-fire for a row it has already seen; edit a `Booking Time` on a fresh row when testing.
+- Zap 5 showed that the Sheets trigger may not re-fire for a row it has already seen; changing an existing `Booking Time` was not tested.
+- Zapier forced a trigger and filter test before the Publish button enabled; Gmail was still never test-sent.
 - No failure alert beyond Zapier's default email.
 
-## Planned test (TC-19)
-On a fresh synthetic row, fill `Booking Time` and check for one test email to the owner. Then leave `Booking Time` empty on another row and check that nothing is sent.
+## Live test (TC-19)
+- Published after testing only the read-only trigger and filter steps (the Gmail step was not test-sent).
+- Waited a few minutes so the Zap recorded the empty Booking Times as its baseline, then filled `Booking Time` (`2026-11-30 11:00`) on the synthetic row "Layla Demo Buyer".
+- One Zap 6 run followed (15:21): filter passed, Gmail reported "Sent 1 new Message", and the sent message shows the labels INBOX, UNREAD and SENT, i.e. it landed in the owner's own mailbox.
+- Rows with no Booking Time produced no Zap 6 runs.
