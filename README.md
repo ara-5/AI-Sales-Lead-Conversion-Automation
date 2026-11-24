@@ -45,7 +45,8 @@ Solid green is built and tested. Dashed grey is planned.
 | 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Live.** Qualified lead became Pending Approval; a Needs Human Review lead was blocked |
 | 5 | Approved send (test mode, emails owner only) | **Live (v2, test mode).** One approved lead produced one send and a `Sent At` stamp; a pending lead was blocked |
 | 6 | Booking notification (test mode, emails owner only) | **Live (v1, test mode).** A Booking Time on a lead produced one owner-only notification |
-| 7-8 | Reminders, report | Not started |
+| 7 | Inactive lead daily digest (test mode, emails owner only) | Built as a draft, not published; Gmail step never run |
+| 8 | Daily report | Not started |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
 
@@ -93,6 +94,7 @@ docs/zaps/03-crm-sync.md
 docs/zaps/04-approval-request.md
 docs/zaps/05-approved-send.md
 docs/zaps/06-booking-notification.md
+docs/zaps/07-inactive-lead-digest.md
 docs/commercial-deployment.md  pricing and rollout notes
 prompts/lead-qualification.md  AI prompt, JSON schema, validation rules
 data/synthetic_leads.csv       synthetic test leads
