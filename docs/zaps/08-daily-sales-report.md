@@ -1,6 +1,6 @@
 # Zap 8 - Daily sales report
 
-**Status: built in Zapier as a draft (Zap id 387673867), not published. The Sheets and Python steps were tested read-only; the Gmail step is configured but has never been run, so no report email has been sent.**
+**Status: published v1 on 2026-11-24 (Zap id 387673867), test mode. Sheets and Python steps tested read-only; the Gmail step was test-sent once to the owner's own address. The first scheduled 6:00 PM run has not been observed yet.**
 
 ## What it does
 
@@ -28,11 +28,12 @@ The report lists: total leads, new in the last 24 hours, counts by Category and 
 - Step 3 test (no side effects): `total` 11, Hot 5, Needs Human Review 4, unscored 2; Qualified 5, Needs Human Review 4, New 2; pending approval 1, approved 1, sent 1, booked 1.
 - Cross-check: the same counts were computed independently from the sheet's CSV export and matched exactly.
 - Trigger test: Zapier produced a sample record for the schedule step.
-- **Not run:** the Gmail step, a scheduled run, and an empty-sheet run.
+- Gmail step test (required by Zapier before publishing): one email to the owner address only, no Cc/Bcc; Zapier reports "Message was sent" with labels UNREAD, SENT, INBOX (own mailbox). Inbox content not independently read (Gmail connector signed out).
+- **Not run:** a scheduled run and an empty-sheet run.
 
 ## Known gaps
 
-- The To field in the editor shows an empty first line above the address; the address itself is set. Not yet confirmed by a send.
+- The To field in the editor shows an empty first line above the address; the test send used only the address (Data in showed one recipient).
 - Threshold-free report: no "failure" alert beyond Zapier's default email.
 - 500-row cap; rows without a Lead ID are ignored; unparseable dates are skipped from the 24-hour count.
 - "New in last 24h" assumes sheet timestamps are Dubai local time (they are, per the earlier Zaps).

@@ -3,7 +3,7 @@
 **AI lead capture, qualification and follow-up automation for UAE real estate agencies, clinics, training institutes and SMEs. Built on Zapier with native integrations and human approval before anything sensitive is sent.**
 
 ![Status](https://img.shields.io/badge/status-in%20progress-orange)
-![Zaps live](https://img.shields.io/badge/Zaps%20live-7%20of%208-blue)
+![Zaps live](https://img.shields.io/badge/Zaps%20live-8%20of%208-blue)
 ![Engine](https://img.shields.io/badge/engine-Zapier-ff4a00)
 ![Data](https://img.shields.io/badge/data-synthetic%20only-green)
 
@@ -28,14 +28,13 @@ flowchart LR
   A -->|yes| G["Zap 5<br/>Gmail send (test mode)"]
   C --> Z6["Zap 6<br/>Booking notification (test mode)"]
   Q --> Z7["Zap 7 Inactive digest<br/>9:00 AM, owner only"]
-  C -.-> Z8["Zap 8 (planned)<br/>Daily report"]
+  Q --> Z8["Zap 8 Daily report<br/>6:00 PM, owner only"]
   classDef live fill:#e6f4ea,stroke:#1e8e3e,color:#000;
   classDef planned fill:#f1f3f4,stroke:#9aa0a6,color:#555,stroke-dasharray: 4 3;
-  class F,Z1,L,Z2,Q,H,Z3,C,Z4,A,G,Z6,Z7 live;
-  class Z8 planned;
+  class F,Z1,L,Z2,Q,H,Z3,C,Z4,A,G,Z6,Z7,Z8 live;
 ```
 
-Solid green is built and tested. Dashed grey is planned.
+Solid green is built and published (test mode).
 
 ## Build status
 | # | Zap | Status |
@@ -47,7 +46,7 @@ Solid green is built and tested. Dashed grey is planned.
 | 5 | Approved send (test mode, emails owner only) | **Live (v2, test mode).** One approved lead produced one send and a `Sent At` stamp; a pending lead was blocked |
 | 6 | Booking notification (test mode, emails owner only) | **Live (v1, test mode).** A Booking Time on a lead produced one owner-only notification |
 | 7 | Inactive lead daily digest (test mode, emails owner only) | **Live (test mode).** Steps tested individually, one owner-only test digest sent; the first scheduled 9:00 run is not yet observed |
-| 8 | Daily sales report (test mode, emails owner only) | Built as a draft, not published; report counts verified against the sheet, Gmail step not yet run |
+| 8 | Daily sales report (test mode, emails owner only) | **Live (test mode).** Report counts verified against the sheet; one owner-only test email sent; first scheduled 6 PM run not yet observed |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
 
