@@ -1,5 +1,7 @@
 # Zap status
 
+These Zaps are stages of one lead journey, described in [`../end-to-end-demo.md`](../end-to-end-demo.md). Zaps 7 and 8 are optional add-ons.
+
 | # | Zap | Status | Tested on |
 |---|---|---|---|
 | 1 | New lead capture, normalize, dedupe | Built and published. TC-01, 03, 05, 07 behave as expected; TC-06 (duplicate phone) failed on v1, fixed in v2 and passed on re-run | - |

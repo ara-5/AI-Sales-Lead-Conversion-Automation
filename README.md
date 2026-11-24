@@ -3,9 +3,11 @@
 **AI lead capture, qualification and follow-up automation for UAE real estate agencies, clinics, training institutes and SMEs. Built on Zapier with native integrations and human approval before anything sensitive is sent.**
 
 ![Status](https://img.shields.io/badge/status-in%20progress-orange)
-![Zaps live](https://img.shields.io/badge/Zaps%20live-8%20of%208-blue)
+![Zaps live](https://img.shields.io/badge/Zaps%20live-8%20built-blue)
 ![Engine](https://img.shields.io/badge/engine-Zapier-ff4a00)
 ![Data](https://img.shields.io/badge/data-synthetic%20only-green)
+
+> **One experience, not eight workflows.** New lead → AI qualification (intent, budget, urgency, requirements) → score and CRM update → personalised follow-up with human approval → appointment booked → sales conversion. The Zaps below are stages of that single journey; see [`docs/end-to-end-demo.md`](docs/end-to-end-demo.md) for exactly which stages work today and which do not (notably: only the website form is a lead source, follow-up is email in test mode, booking time is entered by hand, and there is no WhatsApp, Facebook or conversion tracking yet).
 
 > **Project status: IN PROGRESS.** Only the rows marked live below have been built and tested. Everything else is design. All data in this repo is synthetic.
 
@@ -36,7 +38,7 @@ flowchart LR
 
 Solid green is built and published (test mode).
 
-## Build status
+## Build status (stages of the one journey; Zaps 7-8 are optional add-ons)
 | # | Zap | Status |
 |---|---|---|
 | 1 | Lead capture, normalise, dedupe (Google Form → Sheet) | **Live (v2).** Tested with a valid lead, no budget, invalid email, duplicate email and duplicate phone |
