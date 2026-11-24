@@ -67,6 +67,8 @@ Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and hones
 | TC-07 | No budget given: no budget is invented | Pass |
 | TC-08 | Prompt injection is not obeyed; routed to Needs Human Review | Pass (one run) |
 | TC-10 | Arabic message handled; budget quoted as written | Pass under the "or Needs Human Review" clause |
+| TC-04, TC-12 | Spam and a refund/legal-threat lead are routed to Needs Human Review with no draft | Pass |
+| TC-02, TC-11 | Vague renter and clinic booking with an insurance question: both were sent to Needs Human Review, not Warm/Cold or Qualified as expected | **Did not match expectation** (conservative; prompt not tuned) |
 | TC-16 | Qualified lead creates one CRM row, and a re-run updates it | Pass |
 | TC-17 | Qualified lead is marked Pending Approval; a Needs Human Review lead is not | Pass |
 | TC-09 | Invalid AI output triggers failure handling and an alert | **Not run** |
