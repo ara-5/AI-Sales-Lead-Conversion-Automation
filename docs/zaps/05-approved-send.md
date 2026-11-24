@@ -1,6 +1,6 @@
 # Zap 5 - Approved follow-up send
 
-**Status: published (v2), live test passed in Zapier (TC-18). Test-mode only: emails go to the owner, never the lead.** Arrival in the owner's inbox still to be confirmed by the owner.
+**Status: published (v3), live test passed in Zapier (TC-18). Test-mode only: emails go to the owner, never the lead.** Arrival in the owner's inbox still to be confirmed by the owner.
 
 ## Purpose
 Send the drafted follow-up only after a human has approved it in the `Leads` sheet.
@@ -13,7 +13,8 @@ Send the drafted follow-up only after a human has approved it in the `Leads` she
    - `Draft Message` exists
    - `Sent At` does not exist (duplicate-send guard)
 3. **Gmail - Send Email** in **test mode**: To is the owner's own address, never the lead. Subject `[LeadFlow TEST] Approved follow-up for <Full Name>`; the body starts with `TEST MODE. Intended recipient: <lead email>`, then the draft.
-4. **Google Sheets - Update Spreadsheet Row** (`Leads`, Row = step 1 Row ID): sets only `Sent At` to the current time.
+4. **Formatter by Zapier - Date / Time**: formats the Zap's run timestamp (`{{zap_meta_timestamp}}`, From Format `X`) into `YYYY-MM-DD HH:mm:ss Z` in `Asia/Dubai`.
+5. **Google Sheets - Update Spreadsheet Row** (`Leads`, Row = step 1 Row ID): sets only `Sent At` to the Formatter output.
 
 ## Safeguards
 - Human approval is required: a person must set `Approval Status = Approved` and fill `Approved By`.
@@ -35,3 +36,7 @@ Send the drafted follow-up only after a human has approved it in the `Leads` she
 
 ## Planned live test (TC-18)
 Set `Approval Status = Approved` and `Approved By` on one Pending Approval row, then check that exactly one test email arrives and `Sent At` is written once.
+
+
+## v3 timezone fix (2026-11-24)
+The "Current time" token wrote `Sent At` in the Zapier account timezone (`11/24/26 9:21 AM` when Dubai was 19:21). A Formatter step was added. Its input is the run timestamp (the text "now" returned midnight). Test outputs read back: Formatter `2026-11-24 19:44:02 +0400`; step 5 test wrote `Sent At = 2026-11-24 19:44:12 +0400` to the sample row (synthetic "Omar Demo Buyer"). Published as v3. Not yet observed on a fresh live approval.
