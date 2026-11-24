@@ -7,7 +7,7 @@
 ![Engine](https://img.shields.io/badge/engine-Zapier-ff4a00)
 ![Data](https://img.shields.io/badge/data-synthetic%20only-green)
 
-> **One experience, not eight workflows.** New lead → AI qualification (intent, budget, urgency, requirements) → score and CRM update → personalised follow-up with human approval → appointment booked → sales conversion. The Zaps below are stages of that single journey; see [`docs/end-to-end-demo.md`](docs/end-to-end-demo.md) for exactly which stages work today and which do not (notably: only the website form is a lead source, follow-up is email in test mode, booking time is entered by hand, and there is no WhatsApp, Facebook or conversion tracking yet).
+> **One experience, not eight workflows.** New lead → AI qualification (intent, budget, urgency, requirements) → score and CRM update → personalised follow-up with human approval → appointment booked → sales conversion. The Zaps below are stages of that single journey; one lead has been run through capture, qualification, CRM, approval, send and booking in about 14 minutes (see [`docs/end-to-end-demo.md`](docs/end-to-end-demo.md), TC-21), and that page lists exactly which stages work today and which do not (notably: only the website form is a lead source, follow-up is email in test mode, booking time is entered by hand, and there is no WhatsApp, Facebook or conversion tracking yet).
 
 > **Project status: IN PROGRESS.** Only the rows marked live below have been built and tested. Everything else is design. All data in this repo is synthetic.
 

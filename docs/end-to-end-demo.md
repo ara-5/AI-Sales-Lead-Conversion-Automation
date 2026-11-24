@@ -23,11 +23,29 @@ Add-ons: Zap 7 lists leads with no contact after 3 days (owner only); Zap 8 emai
 4. Set `Approval Status` to `Approved` and show the one test-mode email and the `Sent At` stamp.
 5. Type a `Booking Time` and show the owner notification.
 
-Observed on separate synthetic leads in the test log (`tests/test-cases.md`): TC-01/TC-16/TC-17 (capture to CRM to pending approval), TC-18 (approved send), TC-19 (booking notification). One single lead has not yet been run through every stage in one sitting; that recorded run is the next thing to do.
+Observed on separate synthetic leads in the test log (`tests/test-cases.md`): TC-01/TC-16/TC-17 (capture to CRM to pending approval), TC-18 (approved send), TC-19 (booking notification). See the continuous run below.
+
+## Recorded continuous run (2026-11-24, Dubai time)
+
+One synthetic lead, "Noor Demo Journey" (cash buyer, 3-bedroom villa, Arabian Ranches, about AED 5 million, 5-week timeline), taken through every stage in one sitting. Times are from the form submission, the sheet and Zapier's run history.
+
+| Time | Event | Evidence |
+|---|---|---|
+| 19:09:56 | Form submitted; Zap 1 creates the `Leads` row | Lead ID timestamp |
+| by 19:14 | Zap 2: Status `Qualified`, score 92, Category Hot, urgency High, budget "AED 5 million", Validation VALID, draft written | Sheet read at 19:14 |
+| by 19:15-19:18 | Zap 3 creates the CRM row; Zap 4 sets `Approval Status = Pending Approval` | CRM tab contained the lead and Approval Status was Pending when read at 19:18; Zap 3 run logged 19:15:22 |
+| 19:19 | **Human step:** Approval Status set to `Approved`, Approved By "Demo Approver C" (typed in the sheet) | Sheet |
+| 19:21 | Zap 5: one test-mode send; `Sent At` written | Run history: Successful 19:21:12 |
+| 19:24 | **Human step:** Booking Time `2026-11-28 11:00` typed in the sheet | Sheet |
+| 19:24 | Zap 6: owner notification | Run history: Successful 19:24:14 |
+
+About 14 minutes from enquiry to booked, almost all of it Zapier's polling delay. Two stages were human actions typed into the sheet: the approval (by design) and the booking time (a gap, see below). The send goes to the owner's own address in test mode; its arrival in the inbox was not independently read.
+
+Issue found during this run: `Sent At` was written as `11/24/26 9:21 AM`, which is not Dubai time (Dubai was 19:21), so timestamps written by Zap 5 and those from the form do not share a timezone. Not fixed yet.
 
 ## Gaps to close for a complete demo, in priority order
 
-1. **Record one continuous run** of a single lead through stages 1-5 and save the screenshots and run-log evidence.
+1. **Fix the `Sent At` timezone** so every timestamp in the sheet is Dubai time.
 2. **Booking** that is created, not typed: check which calendar or scheduling apps Zapier supports natively (Google Calendar, Calendly) before promising either.
 3. **Conversion stage:** add a Won/Lost column and show it in the Zap 8 report.
 4. **WhatsApp and Facebook:** verify the native Zapier apps first (Facebook Lead Ads for the source; a WhatsApp or SMS app for the follow-up) and note any paid-plan or business-verification requirement. Until verified, the repo claims neither.
