@@ -1,6 +1,6 @@
 # Zap 8 - Daily sales report
 
-**Status: published v1 on 2026-11-24 (Zap id 387673867), test mode. Sheets and Python steps tested read-only; the Gmail step was test-sent once to the owner's own address. The first scheduled 6:00 PM run has not been observed yet.**
+**Status: published v2 on 2026-11-24 (adds Won/Lost conversion lines); v1 published earlier the same day (Zap id 387673867), test mode. Sheets and Python steps tested read-only; the Gmail step was test-sent once to the owner's own address. The first scheduled 6:00 PM run has not been observed yet.**
 
 ## What it does
 
@@ -9,7 +9,7 @@ Every day at 6:00 PM (Asia/Dubai, weekends included) it reads the `Leads` sheet,
 | # | Step | Configuration |
 |---|---|---|
 | 1 | Schedule by Zapier | Every Day, 6:00 PM, timezone Asia/Dubai, weekends: yes |
-| 2 | Google Sheets - Get Many Spreadsheet Rows (Advanced) | `LeadFlow AI Demo` / `Leads`, columns A:AF, row count 500, first row 2, output "All" |
+| 2 | Google Sheets - Get Many Spreadsheet Rows (Advanced) | `LeadFlow AI Demo` / `Leads`, columns A:AG, row count 500, first row 2, output "All" |
 | 3 | Code by Zapier (Python) | Input `rows` = step 2 **Raw Rows**; returns `total` and `report` |
 | 4 | Gmail - Send Email | To the owner only, subject `[LeadFlow TEST] Daily sales report`, body = step 3 `report` |
 
@@ -38,3 +38,10 @@ The report lists: total leads, new in the last 24 hours, counts by Category and 
 - 500-row cap; rows without a Lead ID are ignored; unparseable dates are skipped from the 24-hour count.
 - "New in last 24h" assumes sheet timestamps are Dubai local time (they are, per the earlier Zaps).
 - Needs a paid plan: multi-step Zaps and Code are premium features; the trial ends around 8 December 2026.
+
+## v2: conversion stage (2026-11-24)
+- A new `Outcome` column (AG) was added to the `Leads` sheet. Values: `Won` or `Lost`; blank means open. It is typed by a person; nothing sets it automatically.
+- Step 2 now reads A:AG and the Python step counts `Won`, `Lost` and `Open`, plus `Conversion (Won / all leads)`.
+- Only the synthetic "Noor Demo Journey" row is marked `Won`, as a demo state. No deal value is recorded.
+- Step test read back: Total 17 (matches the 17 lead rows), `Won: 1, Lost: 0, Open: 16`, conversion 5.9%. The Gmail step was not re-sent; v2 was published after the code step test only.
+- Not observed: a scheduled run of v2.

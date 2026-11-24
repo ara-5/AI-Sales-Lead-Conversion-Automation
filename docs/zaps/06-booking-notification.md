@@ -16,6 +16,7 @@ Tell the sales owner when a lead has a booking time, so nobody misses a viewing 
 - Step tests were skipped on purpose (the Gmail test would send a real email). Mapped fields showed "not available in the current sample" because no row has a Booking Time yet.
 
 ## Known gaps
+- **Duplicate notification (found 2026-11-24):** Zap 6 has no "already notified" guard. A Zap 6 run passed the filter and was Successful at 20:35:27, the same minute the unrelated `Outcome` column was added and filled on the already-booked row "Noor Demo Journey". So editing a booked row can send the booking email again (owner address only, test mode). A fix would need a write-back column such as `Notified At` plus a filter; not built.
 - Nothing populates `Booking Time` yet. Until a person (or a later booking Zap) fills it in, this Zap will not fire.
 - Zap 5 showed that the Sheets trigger may not re-fire for a row it has already seen; changing an existing `Booking Time` was not tested.
 - Zapier forced a trigger and filter test before the Publish button enabled; Gmail was still never test-sent.

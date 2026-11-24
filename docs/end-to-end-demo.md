@@ -11,7 +11,7 @@ LeadFlow AI is one experience, not eight separate automations. The Zaps are stag
 | 3. Scoring and CRM update | Qualified leads create or update one CRM row | 3 | **Works** (create and update path) |
 | 4. Personalised follow-up | Draft is written by the AI, a human approves, then it is sent | 4, 5 | **Works as email in test mode** (goes to the owner's own address, with the lead's address in the body). **WhatsApp follow-up is not built.** |
 | 5. Appointment booked | A booking time is recorded and the owner is notified | 6 | **Partly manual:** the Booking Time is typed into the sheet by hand; nothing creates it from a calendar tool |
-| 6. Sales conversion | Lead is marked won or lost | - | **Not built.** No Converted/Won field or reporting of conversions yet |
+| 6. Sales conversion | Lead is marked won or lost | - | **Partly built.** New `Outcome` column (Won/Lost) typed by hand; Zap 8 v2 reports Won, Lost, Open and conversion. Nothing sets it automatically; only the synthetic Noor row is marked Won |
 
 Add-ons: Zap 7 lists leads with no contact after 3 days (owner only); Zap 8 emails a daily count summary (owner only). Neither has run on its schedule yet.
 
@@ -47,6 +47,6 @@ Issue found during this run: `Sent At` was written as `11/24/26 9:21 AM`, which 
 
 1. ~~Fix the `Sent At` timezone~~ (done in v3 and confirmed on a live run; format differs from the form's `MM/DD/YYYY` style).
 2. **Booking** that is created, not typed: check which calendar or scheduling apps Zapier supports natively (Google Calendar, Calendly) before promising either.
-3. **Conversion stage:** add a Won/Lost column and show it in the Zap 8 report.
+3. ~~Conversion stage~~ (column and report line added 2026-11-24; still set by hand).
 4. **WhatsApp and Facebook:** verify the native Zapier apps first (Facebook Lead Ads for the source; a WhatsApp or SMS app for the follow-up) and note any paid-plan or business-verification requirement. Until verified, the repo claims neither.
 5. **Real recipients:** switch Zap 5 from the owner's address to the lead's address, only with the owner's explicit OK.
