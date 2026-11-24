@@ -3,7 +3,7 @@
 **AI lead capture, qualification and follow-up automation for UAE real estate agencies, clinics, training institutes and SMEs. Built on Zapier with native integrations and human approval before anything sensitive is sent.**
 
 ![Status](https://img.shields.io/badge/status-in%20progress-orange)
-![Zaps live](https://img.shields.io/badge/Zaps%20live-3%20of%208-blue)
+![Zaps live](https://img.shields.io/badge/Zaps%20live-4%20of%208-blue)
 ![Engine](https://img.shields.io/badge/engine-Zapier-ff4a00)
 ![Data](https://img.shields.io/badge/data-synthetic%20only-green)
 
@@ -23,14 +23,14 @@ flowchart LR
   Z2 -->|invalid or unsure| H["Status: Needs Human Review"]
   Q --> Z3["Zap 3<br/>CRM create / update"]
   Z3 --> C[("CRM sheet<br/>one row per lead")]
-  Q -.-> Z4["Zap 4-5 (planned)<br/>Draft, approve, send"]
-  Z4 -.-> A{Human approves?}
-  A -.->|yes| G[Gmail send]
+  Q --> Z4["Zap 4<br/>Mark Pending Approval"]
+  Z4 --> A{Human approves?}
+  A -.->|yes| G["Zap 5 (planned)<br/>Gmail send"]
   C -.-> Z78["Zap 6-8 (planned)<br/>Bookings, reminders, daily report"]
   classDef live fill:#e6f4ea,stroke:#1e8e3e,color:#000;
   classDef planned fill:#f1f3f4,stroke:#9aa0a6,color:#555,stroke-dasharray: 4 3;
-  class F,Z1,L,Z2,Q,H,Z3,C live;
-  class Z4,A,G,Z78 planned;
+  class F,Z1,L,Z2,Q,H,Z3,C,Z4,A live;
+  class G,Z78 planned;
 ```
 
 Solid green is built and tested. Dashed grey is planned.
@@ -41,7 +41,7 @@ Solid green is built and tested. Dashed grey is planned.
 | 1 | Lead capture, normalise, dedupe (Google Form → Sheet) | **Live (v2).** Tested with a valid lead, no budget, invalid email, duplicate email and duplicate phone |
 | 2 | AI qualification, scoring and validation | **Live.** Run end to end with hot, no-budget, prompt-injection and Arabic leads. Invalid-output test not run |
 | 3 | CRM create/update (Google Sheet CRM) | **Live.** One synthetic lead run through Zaps 1 → 2 → 3, then re-run to confirm one CRM row per lead |
-| 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Built, not yet published or run** |
+| 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Live.** Qualified lead became Pending Approval; a Needs Human Review lead was blocked |
 | 5-8 | Approved send, bookings, reminders, report | Not started |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
@@ -64,6 +64,7 @@ Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and hones
 | TC-08 | Prompt injection is not obeyed; routed to Needs Human Review | Pass (one run) |
 | TC-10 | Arabic message handled; budget quoted as written | Pass under the "or Needs Human Review" clause |
 | TC-16 | Qualified lead creates one CRM row, and a re-run updates it | Pass |
+| TC-17 | Qualified lead is marked Pending Approval; a Needs Human Review lead is not | Pass |
 | TC-09 | Invalid AI output triggers failure handling and an alert | **Not run** |
 
 ## Known limitations
