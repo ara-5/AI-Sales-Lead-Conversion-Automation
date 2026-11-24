@@ -3,7 +3,7 @@
 **AI lead capture, qualification and follow-up automation for UAE real estate agencies, clinics, training institutes and SMEs. Built on Zapier with native integrations and human approval before anything sensitive is sent.**
 
 ![Status](https://img.shields.io/badge/status-in%20progress-orange)
-![Zaps live](https://img.shields.io/badge/Zaps%20live-4%20of%208-blue)
+![Zaps live](https://img.shields.io/badge/Zaps%20live-5%20of%208-blue)
 ![Engine](https://img.shields.io/badge/engine-Zapier-ff4a00)
 ![Data](https://img.shields.io/badge/data-synthetic%20only-green)
 
@@ -25,12 +25,12 @@ flowchart LR
   Z3 --> C[("CRM sheet<br/>one row per lead")]
   Q --> Z4["Zap 4<br/>Mark Pending Approval"]
   Z4 --> A{Human approves?}
-  A -.->|yes| G["Zap 5 (planned)<br/>Gmail send"]
+  A -->|yes| G["Zap 5<br/>Gmail send (test mode)"]
   C -.-> Z78["Zap 6-8 (planned)<br/>Bookings, reminders, daily report"]
   classDef live fill:#e6f4ea,stroke:#1e8e3e,color:#000;
   classDef planned fill:#f1f3f4,stroke:#9aa0a6,color:#555,stroke-dasharray: 4 3;
-  class F,Z1,L,Z2,Q,H,Z3,C,Z4,A live;
-  class G,Z78 planned;
+  class F,Z1,L,Z2,Q,H,Z3,C,Z4,A,G live;
+  class Z78 planned;
 ```
 
 Solid green is built and tested. Dashed grey is planned.
@@ -42,7 +42,7 @@ Solid green is built and tested. Dashed grey is planned.
 | 2 | AI qualification, scoring and validation | **Live.** Run end to end with hot, no-budget, prompt-injection and Arabic leads. Invalid-output test not run |
 | 3 | CRM create/update (Google Sheet CRM) | **Live.** One synthetic lead run through Zaps 1 → 2 → 3, then re-run to confirm one CRM row per lead |
 | 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Live.** Qualified lead became Pending Approval; a Needs Human Review lead was blocked |
-| 5 | Approved send (test mode, emails owner only) | Published (v2); filter bug found and fixed; live send not yet confirmed |
+| 5 | Approved send (test mode, emails owner only) | **Live (v2, test mode).** One approved lead produced one send and a `Sent At` stamp; a pending lead was blocked |
 | 6-8 | Bookings, reminders, report | Not started |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
