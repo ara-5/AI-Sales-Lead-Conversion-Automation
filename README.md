@@ -78,7 +78,21 @@ Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and hones
 - The AI by Zapier step is a Premium feature, so Zap 2 needs a paid plan after the free trial.
 
 ## Screenshots
-Screenshots of the Zap canvases and the Leads and CRM sheets will go in [`screenshots/`](screenshots/) with account names blurred. They have not been captured yet.
+Captured 2026-11-24 and cropped so that only LeadFlow Zaps and synthetic data are visible (account and folder names are cropped out, not blurred).
+
+**All eight Zaps switched on**
+
+![Zapier Zaps list showing LeadFlow 01-08 switched on](screenshots/zaps-live.png)
+
+**Leads sheet with synthetic test leads** (test emails use `example.com`)
+
+![Leads sheet with synthetic leads](screenshots/leads-sheet.png)
+
+**Zap 8 - Daily sales report (Schedule, Sheets, Python, Gmail)**
+
+<img src="screenshots/zap8-daily-report.png" alt="Zap 8 canvas with four steps" width="320">
+
+Not captured: the CRM tab, the other seven Zap canvases, and a received report email.
 
 ## Target customers
 UAE real estate agencies, property consultants, clinics, training institutes, service companies and other SMEs. Currency, phone format, language and category lists are configuration, not code, so it adapts to international clients.
@@ -100,7 +114,7 @@ docs/commercial-deployment.md  pricing and rollout notes
 prompts/lead-qualification.md  AI prompt, JSON schema, validation rules
 data/synthetic_leads.csv       synthetic test leads
 tests/test-cases.md            test cases and results
-screenshots/                   to be added
+screenshots/                   Zap list, Leads sheet and Zap 8 canvas
 ```
 
 ## Sharing Zaps safely
