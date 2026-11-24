@@ -41,7 +41,8 @@ Solid green is built and tested. Dashed grey is planned.
 | 1 | Lead capture, normalise, dedupe (Google Form → Sheet) | **Live (v2).** Tested with a valid lead, no budget, invalid email, duplicate email and duplicate phone |
 | 2 | AI qualification, scoring and validation | **Live.** Run end to end with hot, no-budget, prompt-injection and Arabic leads. Invalid-output test not run |
 | 3 | CRM create/update (Google Sheet CRM) | **Live.** One synthetic lead run through Zaps 1 → 2 → 3, then re-run to confirm one CRM row per lead |
-| 4-8 | Follow-up and approval, sending, bookings, reminders, report | Not started |
+| 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Built, not yet published or run** |
+| 5-8 | Approved send, bookings, reminders, report | Not started |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
 
