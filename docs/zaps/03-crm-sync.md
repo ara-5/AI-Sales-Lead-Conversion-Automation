@@ -1,6 +1,6 @@
 # Zap 3: CRM create/update (Google Sheet CRM)
 
-**Status:** Published in Zapier as "Sync Qualified Leads to CRM". Step-tested on 2026-11-23 with "Sara Demo Buyer", then run live end to end with a new synthetic lead ("Test CRM Sync") and an update re-run; see TC-16.
+**Status:** Published in Zapier as "LeadFlow 03 - CRM Sync" (renamed 2026-11-24 from "Sync Qualified Leads to CRM"; no step changes). Step-tested on 2026-11-23 with "Sara Demo Buyer", then run live end to end with a new synthetic lead ("Test CRM Sync") and an update re-run; see TC-16.
 
 **Why a Google Sheet CRM:** the demo needs no external account. A HubSpot version would need a HubSpot account connected in Zapier. HubSpot's free CRM tier exists, but compatibility with the user's Zapier plan was not verified.
 
