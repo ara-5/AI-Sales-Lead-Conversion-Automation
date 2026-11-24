@@ -1,6 +1,6 @@
 # Zap 5 - Approved follow-up send
 
-**Status: built in Zapier, not yet published, not yet tested live.** No email has been sent by this Zap.
+**Status: published (v2), live test not yet completed.** No email has been sent by this Zap so far.
 
 ## Purpose
 Send the drafted follow-up only after a human has approved it in the `Leads` sheet.
@@ -20,7 +20,13 @@ Send the drafted follow-up only after a human has approved it in the `Leads` she
 - `Sent At` filter prevents a second send for the same row.
 - Test mode keeps all mail inside the owner's inbox. Switching to the lead's address is a one-field change in step 3 and needs explicit sign-off.
 
+## What happened on 2026-11-24
+- v1 was published with step tests skipped. On its first live run (row "Omar Demo Buyer", `Approval Status = Approved`, `Approved By` filled, `Sent At` empty) the filter stopped the run. Zapier's filter view showed the `Sent At` rule was set to **Exists** instead of **Does not exist**. Copilot's own summary had claimed the correct rule, so the filter was read back from the editor rather than trusted.
+- Fixed to **Does not exist** and published as v2 ("v2 fix Sent At filter").
+- Re-trigger attempts (row flipped to `Pending Approval`, then back to `Approved` with a changed `Approved By`) had produced no new Zap 5 run in Zapier history after roughly 20 minutes. Cause not yet known.
+
 ## Not yet verified
+- Whether v2 sends exactly one test email and writes `Sent At` (not observed yet).
 - Step tests were skipped on purpose (the Gmail test would send a real email).
 - Zapier flags step 4 as a possible loop (it edits the sheet that triggers it). The `Sent At` filter should stop it; this must be confirmed in the live test.
 - No failure alert beyond Zapier's default email.

@@ -42,7 +42,7 @@ Solid green is built and tested. Dashed grey is planned.
 | 2 | AI qualification, scoring and validation | **Live.** Run end to end with hot, no-budget, prompt-injection and Arabic leads. Invalid-output test not run |
 | 3 | CRM create/update (Google Sheet CRM) | **Live.** One synthetic lead run through Zaps 1 → 2 → 3, then re-run to confirm one CRM row per lead |
 | 4 | Approval request (marks drafts Pending Approval; sends nothing) | **Live.** Qualified lead became Pending Approval; a Needs Human Review lead was blocked |
-| 5 | Approved send (test mode, emails owner only) | Built, not published, not tested live |
+| 5 | Approved send (test mode, emails owner only) | Published (v2); filter bug found and fixed; live send not yet confirmed |
 | 6-8 | Bookings, reminders, report | Not started |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
