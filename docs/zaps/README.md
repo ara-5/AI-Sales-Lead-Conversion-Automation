@@ -9,6 +9,6 @@
 | 5 | Approved follow-up send (test mode: emails owner only) | Published (v2). v1 filter bug (Sent At rule) found and fixed. TC-18 passed in Zapier's run log: one test-mode send, Sent At written. Inbox arrival to be confirmed | [05](05-approved-send.md) |
 | 6 | Appointment booking notifications (test mode: emails owner only) | Published (v1). TC-19 passed: Booking Time on a row produced one owner-only test email; rows without one stayed silent | [06](06-booking-notification.md) |
 | 7 | Inactive lead daily digest (test mode: emails owner only) | Published v1 (test mode). Steps tested individually (scheduled run not yet observed): 0-day code run listed 5 leads, one test digest emailed to the owner, then threshold restored to 3 days (returns 0) | [07](07-inactive-lead-digest.md) |
-| 8 | Daily sales performance report | Not started | - |
+| 8 | Daily sales report (test mode: emails owner only) | Built as a draft, not published. Sheets and Python steps tested read-only (counts match the sheet); Gmail step configured but never run | [08](08-daily-sales-report.md) |
 
 Update this table only after you run the matching test cases in `tests/test-cases.md`.

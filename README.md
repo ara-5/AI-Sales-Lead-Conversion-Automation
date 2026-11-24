@@ -47,7 +47,7 @@ Solid green is built and tested. Dashed grey is planned.
 | 5 | Approved send (test mode, emails owner only) | **Live (v2, test mode).** One approved lead produced one send and a `Sent At` stamp; a pending lead was blocked |
 | 6 | Booking notification (test mode, emails owner only) | **Live (v1, test mode).** A Booking Time on a lead produced one owner-only notification |
 | 7 | Inactive lead daily digest (test mode, emails owner only) | **Live (test mode).** Steps tested individually, one owner-only test digest sent; the first scheduled 9:00 run is not yet observed |
-| 8 | Daily report | Not started |
+| 8 | Daily sales report (test mode, emails owner only) | Built as a draft, not published; report counts verified against the sheet, Gmail step not yet run |
 
 Details per Zap are in [`docs/zaps/`](docs/zaps/README.md). Test cases and honest results are in [`tests/test-cases.md`](tests/test-cases.md).
 
@@ -96,6 +96,7 @@ docs/zaps/04-approval-request.md
 docs/zaps/05-approved-send.md
 docs/zaps/06-booking-notification.md
 docs/zaps/07-inactive-lead-digest.md
+docs/zaps/08-daily-sales-report.md
 docs/commercial-deployment.md  pricing and rollout notes
 prompts/lead-qualification.md  AI prompt, JSON schema, validation rules
 data/synthetic_leads.csv       synthetic test leads
