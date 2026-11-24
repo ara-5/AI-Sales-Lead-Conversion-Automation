@@ -1,6 +1,6 @@
 # Zap 7 - Inactive lead digest
 
-**Status: built in Zapier as a draft (Zap id 387671388), not published. Steps tested individually; one test digest was sent to the owner's own address. The scheduled run has not happened yet.**
+**Status: published v1 on 2026-11-24 (Zap id 387671388), test mode. Steps tested individually; one test digest was sent to the owner's own address. Zapier's pre-publish "Test steps" was run (Skip tests was disabled). The first scheduled 9:00 run has not been observed yet.**
 
 ## Purpose
 Once a day, list Qualified leads that were created more than 3 days ago and have no `Last Contacted` value, so the owner can chase them. One digest email to the owner; nothing goes to the leads.
