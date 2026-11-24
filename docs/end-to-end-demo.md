@@ -41,11 +41,11 @@ One synthetic lead, "Noor Demo Journey" (cash buyer, 3-bedroom villa, Arabian Ra
 
 About 14 minutes from enquiry to booked, almost all of it Zapier's polling delay. Two stages were human actions typed into the sheet: the approval (by design) and the booking time (a gap, see below). The send goes to the owner's own address in test mode; its arrival in the inbox was not independently read.
 
-Issue found during this run: `Sent At` was written as `11/24/26 9:21 AM`, which is not Dubai time (Dubai was 19:21), so timestamps written by Zap 5 and those from the form do not share a timezone. Fixed in Zap 5 v3 with a Formatter step (Asia/Dubai); step test wrote `2026-11-24 19:44:12 +0400`. A fresh live approval has not yet confirmed it.
+Issue found during this run: `Sent At` was written as `11/24/26 9:21 AM`, which is not Dubai time (Dubai was 19:21), so timestamps written by Zap 5 and those from the form do not share a timezone. Fixed in Zap 5 v3 with a Formatter step (Asia/Dubai); step test wrote `2026-11-24 19:44:12 +0400`. Confirmed on a fresh live run ("Tariq Demo Tz"): `Sent At = 2026-11-24 20:21:03 +0400`, one Successful Zap 5 run at 20:21:01.
 
 ## Gaps to close for a complete demo, in priority order
 
-1. ~~Fix the `Sent At` timezone~~ (done in v3, confirm on next live approval; format differs from the form's `MM/DD/YYYY` style).
+1. ~~Fix the `Sent At` timezone~~ (done in v3 and confirmed on a live run; format differs from the form's `MM/DD/YYYY` style).
 2. **Booking** that is created, not typed: check which calendar or scheduling apps Zapier supports natively (Google Calendar, Calendly) before promising either.
 3. **Conversion stage:** add a Won/Lost column and show it in the Zap 8 report.
 4. **WhatsApp and Facebook:** verify the native Zapier apps first (Facebook Lead Ads for the source; a WhatsApp or SMS app for the follow-up) and note any paid-plan or business-verification requirement. Until verified, the repo claims neither.

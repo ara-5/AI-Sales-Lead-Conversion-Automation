@@ -39,4 +39,6 @@ Set `Approval Status = Approved` and `Approved By` on one Pending Approval row, 
 
 
 ## v3 timezone fix (2026-11-24)
-The "Current time" token wrote `Sent At` in the Zapier account timezone (`11/24/26 9:21 AM` when Dubai was 19:21). A Formatter step was added. Its input is the run timestamp (the text "now" returned midnight). Test outputs read back: Formatter `2026-11-24 19:44:02 +0400`; step 5 test wrote `Sent At = 2026-11-24 19:44:12 +0400` to the sample row (synthetic "Omar Demo Buyer"). Published as v3. Not yet observed on a fresh live approval.
+The "Current time" token wrote `Sent At` in the Zapier account timezone (`11/24/26 9:21 AM` when Dubai was 19:21). A Formatter step was added. Its input is the run timestamp (the text "now" returned midnight). Test outputs read back: Formatter `2026-11-24 19:44:02 +0400`; step 5 test wrote `Sent At = 2026-11-24 19:44:12 +0400` to the sample row (synthetic "Omar Demo Buyer"). Published as v3.
+
+**Live confirmation (2026-11-24):** fresh synthetic lead "Tariq Demo Tz" (score 92, Hot) reached Pending Approval, then was set to `Approved` / `Approved By = Demo Approver` by hand at about 20:20. Zap 5 history shows one Filtered run at 20:14 (while pending) and one Successful run at 20:21:01 for it. The sheet cell then read `Sent At = 2026-11-24 20:21:03 +0400`, which is Dubai time. Inbox arrival of the test email was not independently read.
