@@ -1,6 +1,6 @@
 # Zap 8 - Daily sales report
 
-**Status: published v2 on 2026-11-24 (adds Won/Lost conversion lines); v1 published earlier the same day (Zap id 387673867), test mode. Sheets and Python steps tested read-only; the Gmail step was test-sent once to the owner's own address. The first scheduled 6:00 PM run has not been observed yet.**
+**Status: published v2 on 2026-11-24 (adds Won/Lost conversion lines); v1 published earlier the same day (Zap id 387673867), test mode. Sheets and Python steps tested read-only; the Gmail step was test-sent once to the owner's own address. The first scheduled run was observed 2026-11-25: 18:00:06 Dubai, run status Successful.**
 
 ## What it does
 
@@ -29,7 +29,7 @@ The report lists: total leads, new in the last 24 hours, counts by Category and 
 - Cross-check: the same counts were computed independently from the sheet's CSV export and matched exactly.
 - Trigger test: Zapier produced a sample record for the schedule step.
 - Gmail step test (required by Zapier before publishing): one email to the owner address only, no Cc/Bcc; Zapier reports "Message was sent" with labels UNREAD, SENT, INBOX (own mailbox). Inbox content not independently read (Gmail connector signed out).
-- **Not run:** a scheduled run and an empty-sheet run.
+- **Observed 2026-11-25:** the scheduled run fired at 18:00:06 Dubai and Zapier history shows it as Successful (one run, tasks shown as "+2"). I did not open the run detail or read the email in an inbox, so the report's counts and delivery are not independently checked. An empty-sheet run has not been done.
 
 ## Known gaps
 
@@ -44,4 +44,4 @@ The report lists: total leads, new in the last 24 hours, counts by Category and 
 - Step 2 now reads A:AG and the Python step counts `Won`, `Lost` and `Open`, plus `Conversion (Won / all leads)`.
 - Only the synthetic "Noor Demo Journey" row is marked `Won`, as a demo state. No deal value is recorded.
 - Step test read back: Total 17 (matches the 17 lead rows), `Won: 1, Lost: 0, Open: 16`, conversion 5.9%. The Gmail step was not re-sent; v2 was published after the code step test only.
-- Not observed: a scheduled run of v2.
+- Scheduled run of v2 observed 2026-11-25 18:00:06: Successful at run level (details not opened).
