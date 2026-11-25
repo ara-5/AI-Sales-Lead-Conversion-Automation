@@ -1,6 +1,6 @@
 # Zap 7 - Inactive lead digest
 
-**Status: published v1 on 2026-11-24 (Zap id 387671388), test mode. Steps tested individually; one test digest was sent to the owner's own address. Zapier's pre-publish "Test steps" was run (Skip tests was disabled). The first scheduled 9:00 run has not been observed yet.**
+**Status: published v1 on 2026-11-24 (Zap id 387671388), test mode. Steps tested individually; one test digest was sent to the owner's own address. Zapier's pre-publish "Test steps" was run (Skip tests was disabled). The first scheduled run was observed 2026-11-25: fired 09:00:05 Dubai, status Filtered (see below).**
 
 ## Purpose
 Once a day, list Qualified leads that were created more than 3 days ago and have no `Last Contacted` value, so the owner can chase them. One digest email to the owner; nothing goes to the leads.
@@ -23,7 +23,7 @@ Once a day, list Qualified leads that were created more than 3 days ago and have
 - Filter step: configuration read back (`Count` greater than 0); not exercised as a separate step test.
 
 ## Known gaps
-- The scheduled end-to-end run (schedule fires, lookup, code, filter, email) has not been observed. With `DAYS = 3` it will send nothing until a Qualified lead is more than 3 days old.
+- **Observed 2026-11-25:** the schedule fired at 09:00:05 Dubai and Zapier history shows one run with status Filtered, no email. That matches the expectation that the filter stops when no Qualified lead is older than 3 days. I did not open the run detail, so which step stopped it is inferred from the status, not read. The send path of a scheduled run (count above 0) is still unobserved; only the manual step tests covered it.
 - Nothing fills `Last Contacted` yet, so every Qualified lead over 3 days old will be listed daily until it does.
 - The threshold is a constant inside the code step, not a field.
 - Rows whose `Created At` cannot be parsed are skipped silently. The lookup is capped at 500 rows.
